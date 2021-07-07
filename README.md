@@ -1,2 +1,2 @@
-# practice-repo
- just my practice progress
+## React Project practice by leadiville
+
