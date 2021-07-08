@@ -63,7 +63,7 @@ const App = () => {
   if(loading) { return <Loading />} else { 
     return (
       <div>
-    {tours.length === 0 && <Special />}
+    {tours.length === 0 && <Special getTours={getTours} setModal = {setModal} />}
       <main>
     <Tours tours={tours} notInterested = {notInterested} />
     </main>

@@ -16,9 +16,6 @@ const Special = ({getTours, setModal}) => {
         setModal(true)
        }}>exclusive</button>
        </h3>
-       <button className='btn' onClick = {() => {
-         getTours()
-        }}>go back</button>
         </main>
         
     )
