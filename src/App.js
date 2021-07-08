@@ -3,6 +3,7 @@ import Loading from './Loading'
 import Tours from './Tours'
 import Modal from './Modal'
 import ModalComponents from './ModalComponents'
+import Special from './Special'
 
 const url = 'https://course-api.com/react-tours-project'
 
@@ -23,13 +24,15 @@ const App = () => {
 
   //fetching and assigning value to data array
   const getTours = async () => {
-    setLoading(true);
+
     try {
+      setLoading(true);
       const response = await fetch(url);
       const tours = await response.json();
       setLoading(false)
-      return setTours(tours);
-      
+      setTours(tours)
+      return tours
+
     } 
     catch (error) {
       setLoading(false);
@@ -43,22 +46,7 @@ const App = () => {
   }, [])
 
 //decided to do the conditioning here just to speed up
-  if(tours.length === 0) {
-    return (
-      <main>
-      <h3 className='exclusive'>looking for something special...
-      <button onClick = {() => {
-        getTours()
-        setModal(true)}}>exclusive offers</button>
-    </h3>
-      <br />
-      <h2>Don't like any of our choices!</h2>
-      <button className='btn' onClick = {() => 
-        getTours()
-      }>Refresh</button>
-      </main>
-    )
-  }
+  
 
   //set up modal conditon 
   if(modal) {
@@ -71,11 +59,15 @@ const App = () => {
     )
   }
 
+
   if(loading) { return <Loading />} else { 
     return (
+      <div>
+    {tours.length === 0 && <Special />}
       <main>
     <Tours tours={tours} notInterested = {notInterested} />
     </main>
+      </div>
    )}
     }
 export default App

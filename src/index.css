@@ -191,7 +191,7 @@ main {
 .tour-info h4 {
   margin-bottom: 0;
 }
-.single-tour button, .exclusive button{
+.single-tour button , .exclusive button{
   background: transparent;
   border-color: transparent;
   text-transform: capitalize;
@@ -209,7 +209,7 @@ main {
 .single-tour footer {
   padding: 1.5rem 2rem;
 }
-.single-tour .delete-btn {
+.single-tour .delete-btn  {
   display: block;
   width: 200px;
   margin: 1rem auto 0 auto;
